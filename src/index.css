@@ -1,0 +1,1741 @@
+/* ==========================================================================
+   ALPHA UNIVERSITY MANAGEMENT SYSTEM (AUMS / UMaT & UG STYLE PORTAL)
+   Institutional Academic Information System & Enterprise MIS Web Portal
+   Complete Design System v2.4.0
+   ========================================================================== */
+
+/* ==========================================================================
+   1. TYPOGRAPHY & FONT STACK
+   ========================================================================== */
+:root {
+  --font-display: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-system: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', Courier, monospace;
+  --font-serif: 'Times New Roman', Times, Georgia, serif;
+}
+
+/* ==========================================================================
+   2. INSTITUTIONAL BRAND TOKENS (Light Theme Default)
+   ========================================================================== */
+:root {
+  /* Official Institutional Brand Colors (UMaT Forest Green & Academic Gold) */
+  --uni-green: #003822;
+  --uni-green-dark: #002617;
+  --uni-green-light: #004d2f;
+  --uni-gold: #c59b27;
+  --uni-gold-light: #e5b93d;
+  --uni-gold-subtle: #fcf6e6;
+  --uni-navy: #002147;
+
+  /* ===== Semantic Alias Tokens (used by aums-* components) ===== */
+  --primary: #003822;
+  --primary-light: #004d2f;
+  --primary-glow: rgba(0, 56, 34, 0.08);
+
+  --emerald: #15803d;
+  --emerald-bg: rgba(21, 128, 61, 0.08);
+  --purple: #7c3aed;
+  --purple-bg: rgba(124, 58, 237, 0.08);
+  --rose: #e11d48;
+  --rose-bg: rgba(225, 29, 72, 0.08);
+  --amber: #d97706;
+  --amber-bg: rgba(217, 119, 6, 0.08);
+  --sky: #0284c7;
+  --sky-bg: rgba(2, 132, 199, 0.08);
+
+  /* Semantic Status Tokens */
+  --status-success: #15803d;
+  --status-success-bg: #f0fdf4;
+  --status-success-border: #bbf7d0;
+
+  --status-warning: #b45309;
+  --status-warning-bg: #fffbeb;
+  --status-warning-border: #fde68a;
+
+  --status-danger: #b91c1c;
+  --status-danger-bg: #fef2f2;
+  --status-danger-border: #fecaca;
+
+  --status-info: #0369a1;
+  --status-info-bg: #f0f9ff;
+  --status-info-border: #bae6fd;
+
+  /* ===== Surface & Layout Tokens ===== */
+  --portal-bg: #f0f2f5;
+  --header-bg: #003822;
+  --header-text: #ffffff;
+
+  --bg-card: #ffffff;
+  --bg-surface: #f8fafc;
+  --bg-subtle: #f1f5f9;
+  --bg-hover: #e8ecf1;
+
+  /* Legacy aliases */
+  --surface-card: #ffffff;
+  --surface-subtle: #f8fafc;
+  --surface-hover: #f1f5f9;
+  --surface-border: #dbe2ea;
+  --surface-border-strong: #cbd5e1;
+
+  /* Border tokens */
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --border-highlight: #c59b27;
+
+  /* Text tokens */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-light: #ffffff;
+  --text-main: #0f172a;
+  --text-dim: #94a3b8;
+
+  /* Table tokens */
+  --table-header-bg: #003822;
+  --table-header-text: #ffffff;
+  --table-stripe: #f8fafc;
+  --table-border: #e2e8f0;
+
+  /* Sidebar tokens */
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #e2e8f0;
+  --sidebar-item-hover: #f1f5f9;
+  --sidebar-active-bg: #003822;
+  --sidebar-active-text: #ffffff;
+
+  /* Shadow & Radius tokens */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+/* ==========================================================================
+   3. EBONY INSTITUTIONAL DARK THEME
+   ========================================================================== */
+[data-theme='dark'] {
+  --portal-bg: #0a0f16;
+  --header-bg: #071e14;
+  --header-text: #f8fafc;
+
+  --bg-card: #111822;
+  --bg-surface: #0e1520;
+  --bg-subtle: #17202c;
+  --bg-hover: #1e293b;
+
+  --surface-card: #111822;
+  --surface-subtle: #17202c;
+  --surface-hover: #1e293b;
+  --surface-border: #223043;
+  --surface-border-strong: #2e3f57;
+
+  --border-subtle: #1e293b;
+  --border-strong: #334155;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-main: #f1f5f9;
+  --text-dim: #64748b;
+
+  --table-header-bg: #071e14;
+  --table-header-text: #f8fafc;
+  --table-stripe: #131c27;
+  --table-border: #223043;
+
+  --sidebar-bg: #111822;
+  --sidebar-border: #223043;
+  --sidebar-item-hover: #17202c;
+  --sidebar-active-bg: #004d2f;
+  --sidebar-active-text: #ffffff;
+
+  --primary-glow: rgba(0, 77, 47, 0.2);
+  --emerald-bg: rgba(21, 128, 61, 0.15);
+  --purple-bg: rgba(124, 58, 237, 0.15);
+  --rose-bg: rgba(225, 29, 72, 0.15);
+  --amber-bg: rgba(217, 119, 6, 0.15);
+  --sky-bg: rgba(2, 132, 199, 0.15);
+
+  --status-success-bg: rgba(21, 128, 61, 0.15);
+  --status-warning-bg: rgba(180, 83, 9, 0.15);
+  --status-danger-bg: rgba(185, 28, 28, 0.15);
+  --status-info-bg: rgba(3, 105, 161, 0.15);
+
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+  --shadow-elevated: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   4. CSS RESET & BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--portal-bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-size: 13.5px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* Institutional Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* Utility: Monospace font */
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+/* ==========================================================================
+   5. ANIMATIONS & TRANSITIONS
+   ========================================================================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes notificationPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out both;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.25s ease-out both;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Staggered animation delays for lists */
+.animate-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.animate-stagger > *:nth-child(2) { animation-delay: 50ms; }
+.animate-stagger > *:nth-child(3) { animation-delay: 100ms; }
+.animate-stagger > *:nth-child(4) { animation-delay: 150ms; }
+.animate-stagger > *:nth-child(5) { animation-delay: 200ms; }
+.animate-stagger > *:nth-child(6) { animation-delay: 250ms; }
+.animate-stagger > *:nth-child(7) { animation-delay: 300ms; }
+.animate-stagger > *:nth-child(8) { animation-delay: 350ms; }
+
+/* ==========================================================================
+   6. LAYOUT SYSTEM
+   ========================================================================== */
+
+/* High-Density Layout Container */
+.portal-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Portal Main Frame */
+.portal-main-frame {
+  display: flex;
+  flex: 1;
+  max-width: 1650px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 20px;
+  gap: 20px;
+}
+
+/* Institutional Content Area */
+.portal-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   7. TOP NAVIGATION BAR
+   ========================================================================== */
+
+/* Institutional Top Notification Bar */
+.gov-top-bar {
+  background: #002617;
+  color: #d4af37;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  font-family: var(--font-system);
+}
+
+/* Institutional Masthead Banner */
+.uni-masthead {
+  background: var(--header-bg);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-bottom: 3px solid var(--uni-gold);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.uni-crest-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.uni-emblem {
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(circle, #f9fafb 60%, #e5e7eb 100%);
+  border: 2px solid var(--uni-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.uni-emblem:hover {
+  transform: scale(1.05);
+}
+
+.uni-name-block h1 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+}
+
+.uni-name-block .system-subtitle {
+  font-size: 0.8rem;
+  color: var(--uni-gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-system);
+}
+
+/* Notification Bell */
+.notification-bell {
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--uni-gold);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.notification-bell:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--uni-gold);
+}
+.notification-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--rose);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: notificationPop 0.3s ease-out;
+  font-family: var(--font-system);
+}
+
+/* ==========================================================================
+   8. SIDEBAR NAVIGATION
+   ========================================================================== */
+
+.portal-sidebar {
+  width: 270px;
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  border: 1px solid var(--sidebar-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+}
+
+.sidebar-student-card {
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--sidebar-border);
+  padding: 16px;
+  text-align: center;
+}
+
+.sidebar-student-photo {
+  width: 76px;
+  height: 84px;
+  border: 2px solid var(--uni-gold);
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  margin: 0 auto 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-student-photo:hover {
+  transform: scale(1.03);
+}
+
+/* Portal Identity Card (for non-student portals) */
+.sidebar-portal-identity {
+  background: var(--primary);
+  border-bottom: 2px solid var(--uni-gold);
+  padding: 16px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sidebar-portal-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  color: var(--uni-gold);
+}
+
+.sidebar-nav-group {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--sidebar-border);
+}
+
+.sidebar-nav-group:last-child {
+  border-bottom: none;
+}
+
+.sidebar-nav-group-title {
+  padding: 6px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  font-family: var(--font-system);
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  font-size: 12.5px;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+.sidebar-nav-item:hover {
+  background: var(--sidebar-item-hover);
+  color: var(--primary);
+}
+
+.sidebar-nav-item.active {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  border-left-color: var(--uni-gold);
+  font-weight: 600;
+}
+
+.sidebar-nav-badge {
+  margin-left: auto;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-family: var(--font-system);
+  background: var(--primary-glow);
+  color: var(--primary);
+}
+
+.sidebar-nav-item.active .sidebar-nav-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 12px 16px;
+  border-top: 1px solid var(--sidebar-border);
+  font-size: 10px;
+  color: var(--text-dim);
+  text-align: center;
+  font-family: var(--font-system);
+}
+
+/* ==========================================================================
+   9. AUMS CARD SYSTEM (Modern Portal Components)
+   ========================================================================== */
+
+.aums-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.aums-card-interactive {
+  cursor: pointer;
+}
+
+.aums-card-interactive:hover {
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--border-strong);
+}
+
+/* ==========================================================================
+   10. UNI CARD SYSTEM (Institutional / Formal Components)
+   ========================================================================== */
+
+.uni-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.uni-card-header {
+  background: var(--surface-subtle);
+  border-bottom: 1px solid var(--surface-border);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.uni-card-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.uni-card-body {
+  padding: 18px;
+}
+
+/* ==========================================================================
+   11. KPI STAT CARDS
+   ========================================================================== */
+
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.kpi-card:hover {
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-2px);
+}
+
+.kpi-card-green::before { background: var(--emerald); }
+.kpi-card-gold::before { background: var(--uni-gold); }
+.kpi-card-purple::before { background: var(--purple); }
+.kpi-card-rose::before { background: var(--rose); }
+.kpi-card-amber::before { background: var(--amber); }
+.kpi-card-sky::before { background: var(--sky); }
+
+.kpi-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  line-height: 1.2;
+  margin: 8px 0 4px;
+}
+
+.kpi-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.kpi-trend {
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kpi-trend-up { color: var(--emerald); }
+.kpi-trend-down { color: var(--rose); }
+.kpi-trend-neutral { color: var(--text-dim); }
+
+/* ==========================================================================
+   12. DATA TABLES
+   ========================================================================== */
+
+/* Modern AUMS Table */
+.aums-table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.aums-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.825rem;
+}
+
+.aums-table th {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-system);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.aums-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  vertical-align: middle;
+  transition: background 0.1s ease;
+}
+
+.aums-table tbody tr:hover td {
+  background: var(--bg-subtle);
+}
+
+.aums-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Institutional UNI Table (High-Density Formal) */
+.uni-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.uni-data-table th {
+  background: var(--table-header-bg);
+  color: var(--table-header-text);
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--uni-green-dark);
+}
+
+.uni-data-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--table-border);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.uni-data-table tr:nth-child(even) td {
+  background: var(--table-stripe);
+}
+
+.uni-data-table tr:hover td {
+  background: var(--bg-hover);
+}
+
+/* ==========================================================================
+   13. BUTTONS
+   ========================================================================== */
+
+/* Modern Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-system);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  border-radius: 6px;
+}
+
+.btn-lg {
+  padding: 12px 24px;
+  font-size: 0.95rem;
+}
+
+/* Button Variants */
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+.btn-primary:hover {
+  background: var(--primary-light);
+  box-shadow: 0 2px 8px rgba(0, 56, 34, 0.25);
+}
+
+.btn-secondary {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
+}
+
+.btn-success {
+  background: var(--emerald);
+  color: #ffffff;
+  border-color: var(--emerald);
+}
+.btn-success:hover {
+  background: #16a34a;
+  box-shadow: 0 2px 8px rgba(21, 128, 61, 0.25);
+}
+
+.btn-danger {
+  background: var(--rose);
+  color: #ffffff;
+  border-color: var(--rose);
+}
+.btn-danger:hover {
+  background: #be123c;
+}
+
+.btn-warning {
+  background: var(--amber);
+  color: #ffffff;
+  border-color: var(--amber);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--border-strong);
+}
+.btn-outline:hover {
+  background: var(--primary-glow);
+  border-color: var(--primary);
+}
+
+/* Official Institutional Buttons (UNI-prefixed) */
+.btn-uni-primary {
+  background: var(--uni-green);
+  color: #ffffff;
+  border: 1px solid var(--uni-green-dark);
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-system);
+  transition: all 0.15s ease;
+}
+.btn-uni-primary:hover {
+  background: var(--uni-green-light);
+}
+
+.btn-uni-gold {
+  background: var(--uni-gold);
+  color: #000000;
+  border: 1px solid #a37c15;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.btn-uni-gold:hover {
+  background: var(--uni-gold-light);
+}
+
+.btn-uni-secondary {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.btn-uni-secondary:hover {
+  background: var(--bg-hover);
+}
+
+/* ==========================================================================
+   14. BADGE SYSTEM
+   ========================================================================== */
+
+/* Modern Badge Base */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-family: var(--font-system);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.badge-primary {
+  background: var(--primary-glow);
+  color: var(--primary);
+  border: 1px solid rgba(0, 56, 34, 0.15);
+}
+
+.badge-success {
+  background: var(--emerald-bg);
+  color: var(--emerald);
+  border: 1px solid rgba(21, 128, 61, 0.15);
+}
+
+.badge-warning {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+.badge-danger {
+  background: var(--rose-bg);
+  color: var(--rose);
+  border: 1px solid rgba(225, 29, 72, 0.15);
+}
+
+.badge-purple {
+  background: var(--purple-bg);
+  color: var(--purple);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+.badge-neutral {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.badge-info {
+  background: var(--sky-bg);
+  color: var(--sky);
+  border: 1px solid rgba(2, 132, 199, 0.15);
+}
+
+/* Institutional Badges (UNI-prefixed) */
+.uni-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-family: var(--font-system);
+}
+
+.badge-cleared {
+  background: var(--status-success-bg);
+  color: var(--status-success);
+  border: 1px solid var(--status-success-border);
+}
+
+.badge-arrears {
+  background: var(--status-danger-bg);
+  color: var(--status-danger);
+  border: 1px solid var(--status-danger-border);
+}
+
+.badge-pending {
+  background: var(--status-warning-bg);
+  color: var(--status-warning);
+  border: 1px solid var(--status-warning-border);
+}
+
+.badge-official {
+  background: var(--bg-surface);
+  color: var(--uni-green);
+  border: 1px solid var(--border-strong);
+}
+
+/* ==========================================================================
+   15. FORM CONTROLS & INPUTS
+   ========================================================================== */
+
+/* Modern Input Control */
+.input-control {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  outline: none;
+  font-family: var(--font-system);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.input-control::placeholder {
+  color: var(--text-dim);
+}
+
+/* Institutional Input */
+.uni-input {
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 13px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  color: var(--text-primary);
+  outline: none;
+  font-family: var(--font-system);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.uni-input:focus {
+  border-color: var(--uni-green);
+  box-shadow: 0 0 0 2px rgba(0, 56, 34, 0.15);
+}
+
+/* Select Control */
+select.input-control,
+select.uni-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+/* ==========================================================================
+   16. OFFICIAL DOCUMENT STYLES (Statement of Results / Transcript)
+   ========================================================================== */
+
+.official-transcript-sheet {
+  background: #ffffff;
+  color: #000000;
+  padding: 36px 40px;
+  border: 2px solid #1e293b;
+  border-radius: 2px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-family: var(--font-body);
+}
+
+.official-transcript-sheet::before {
+  content: 'OFFICIAL RECORD';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(0, 56, 34, 0.035);
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: var(--font-display);
+}
+
+.transcript-header-center {
+  text-align: center;
+  border-bottom: 2px solid #003822;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.transcript-header-center h2 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #003822;
+  margin: 0 0 2px 0;
+  letter-spacing: 0.03em;
+}
+
+.transcript-header-center .office-subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.05em;
+}
+
+.transcript-header-center .doc-title {
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #b45309;
+  margin-top: 6px;
+  text-decoration: underline;
+}
+
+/* Institutional Metadata Grid */
+.student-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+}
+
+.meta-row {
+  display: flex;
+  padding: 6px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.meta-label {
+  width: 140px;
+  font-weight: 700;
+  color: #475569;
+  flex-shrink: 0;
+}
+
+.meta-val {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   17. PROGRESS BARS & CHARTS
+   ========================================================================== */
+
+.progress-bar-track {
+  height: 8px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar-green { background: var(--emerald); }
+.progress-bar-gold { background: var(--uni-gold); }
+.progress-bar-purple { background: var(--purple); }
+.progress-bar-amber { background: var(--amber); }
+.progress-bar-rose { background: var(--rose); }
+
+/* ==========================================================================
+   18. WORKFLOW PIPELINE VISUALIZATION
+   ========================================================================== */
+
+.workflow-pipeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.workflow-node {
+  padding: 8px 14px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  text-align: center;
+  min-width: 130px;
+  transition: all 0.2s ease;
+}
+
+.workflow-node.active {
+  background: var(--primary-glow);
+  border-color: var(--primary);
+}
+
+.workflow-node.completed {
+  background: var(--emerald-bg);
+  border-color: var(--emerald);
+}
+
+.workflow-arrow {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-dim);
+}
+
+/* ==========================================================================
+   19. EMPTY STATES
+   ========================================================================== */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.empty-state-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--bg-subtle);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--text-dim);
+}
+
+/* ==========================================================================
+   20. TOAST NOTIFICATIONS
+   ========================================================================== */
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 20px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 9999;
+  animation: fadeInUp 0.3s ease-out;
+  max-width: 420px;
+}
+
+.toast-success {
+  background: var(--emerald);
+  color: #ffffff;
+}
+
+.toast-error {
+  background: var(--rose);
+  color: #ffffff;
+}
+
+.toast-warning {
+  background: var(--amber);
+  color: #ffffff;
+}
+
+.toast-info {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   21. MODAL / OVERLAY
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleIn 0.25s ease-out;
+}
+
+/* ==========================================================================
+   22. SKELETON LOADING
+   ========================================================================== */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-subtle) 25%,
+    var(--bg-hover) 50%,
+    var(--bg-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-text {
+  height: 14px;
+  width: 80%;
+  margin-bottom: 8px;
+}
+
+.skeleton-heading {
+  height: 24px;
+  width: 60%;
+  margin-bottom: 12px;
+}
+
+.skeleton-card {
+  height: 120px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   23. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1280px) {
+  .portal-main-frame {
+    max-width: 100%;
+    padding: 14px 16px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .portal-sidebar {
+    width: 240px;
+  }
+
+  .student-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .uni-masthead {
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .uni-name-block h1 {
+    font-size: 0.95rem;
+  }
+
+  .gov-top-bar {
+    font-size: 10px;
+    padding: 3px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portal-main-frame {
+    flex-direction: column;
+    padding: 10px 12px;
+    gap: 12px;
+  }
+
+  .portal-sidebar {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .sidebar-student-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    padding: 10px 14px;
+  }
+
+  .sidebar-student-photo {
+    width: 48px;
+    height: 52px;
+    margin: 0;
+  }
+
+  .uni-masthead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .uni-emblem {
+    width: 36px;
+    height: 36px;
+  }
+
+  .official-transcript-sheet {
+    padding: 20px 16px;
+  }
+
+  .official-transcript-sheet::before {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12.5px;
+  }
+
+  .gov-top-bar {
+    display: none;
+  }
+
+  .portal-sidebar {
+    max-height: 200px;
+  }
+
+  .aums-card {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+}
+
+/* ==========================================================================
+   24. PRINT STYLES
+   ========================================================================== */
+@media print {
+  .gov-top-bar,
+  .uni-masthead,
+  .portal-sidebar,
+  .no-print {
+    display: none !important;
+  }
+  .portal-main-frame {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  .portal-content {
+    gap: 0 !important;
+  }
+  .official-transcript-sheet {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  .aums-card,
+  .uni-card {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    page-break-inside: avoid;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+
+/* ==========================================================================
+   25. FOCUS & ACCESSIBILITY
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn:focus-visible,
+.sidebar-nav-item:focus-visible {
+  outline: 2px solid var(--uni-gold);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px 16px;
+  background: var(--primary);
+  color: #ffffff;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ==========================================================================
+   26. DASHBOARD SPECIFIC STYLES
+   ========================================================================== */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.dashboard-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.dashboard-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid-2,
+  .dashboard-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Welcome Banner */
+.welcome-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--uni-green-light) 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(197, 155, 39, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Quick Action Cards */
+.quick-action {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-action:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-1px);
+}
+
+.quick-action-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Notice / Announcement Items */
+.notice-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 0.1s ease;
+}
+
+.notice-item:last-child {
+  border-bottom: none;
+}
+
+.notice-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.notice-dot-urgent { background: var(--rose); }
+.notice-dot-academic { background: var(--primary); }
+.notice-dot-financial { background: var(--amber); }
+.notice-dot-general { background: var(--sky); }
+
+/* ==========================================================================
+   27. PORTAL TAB NAVIGATION
+   ========================================================================== */
+
+.portal-tabs {
+  display: flex;
+  gap: 2px;
+  border-bottom: 2px solid var(--primary);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.portal-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.portal-tab {
+  padding: 10px 18px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  border-bottom: none;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-system);
+}
+
+.portal-tab:hover {
+  background: var(--bg-subtle);
+  color: var(--primary);
+}
+
+.portal-tab.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   28. BREADCRUMB TRAIL
+   ========================================================================== */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-family: var(--font-system);
+  padding: 4px 0;
+}
+
+.breadcrumb-separator {
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+
+.breadcrumb-current {
+  color: var(--uni-gold);
+  font-weight: 600;
+}
