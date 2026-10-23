@@ -4,11 +4,6 @@ import {
   CheckCircle2,
   Search,
   Smartphone,
-  Calculator,
-  CreditCard,
-  ShieldCheck,
-  BarChart3,
-  Award,
 } from 'lucide-react';
 
 interface FinancePortalProps {

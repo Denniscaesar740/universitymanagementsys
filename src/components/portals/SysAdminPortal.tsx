@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { useAums } from '../../context/AumsContext';
 import {
   Search,
-  Users,
-  Settings,
   Database,
   Download,
   Server,
-  Activity,
 } from 'lucide-react';
 
 interface SysAdminPortalProps {

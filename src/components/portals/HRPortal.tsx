@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import {
-  Briefcase,
-  CalendarDays,
-  Calculator,
-  Award,
   Search,
   CheckCircle2,
-  UserPlus,
   Plus,
 } from 'lucide-react';
 

@@ -4,9 +4,7 @@ import type { StudentRecord } from '../../types/models';
 import {
   Search,
   Award,
-  Users,
   FileText,
-  GraduationCap,
   Printer,
   CheckCircle2,
   QrCode,

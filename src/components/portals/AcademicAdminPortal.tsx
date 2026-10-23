@@ -5,8 +5,6 @@ import {
   ArrowRight,
   ShieldCheck,
   FileCheck,
-  BookOpen,
-  Building,
   CalendarDays,
   Clock,
 } from 'lucide-react';

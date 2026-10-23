@@ -11,7 +11,6 @@ import {
   CreditCard,
   Smartphone,
   ShieldCheck,
-  LayoutDashboard,
   Clock,
   BookOpen,
   Building2,
