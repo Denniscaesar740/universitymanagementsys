@@ -26,6 +26,7 @@ import {
   INITIAL_AUDIT_LOGS,
   INITIAL_NOTICES,
 } from '../data/initialData';
+import { DEMO_PASSWORD, MODULE_BINDINGS, PORTAL_DEFAULT_VIEWS, primaryBinding } from '../data/moduleBindings';
 
 // Grading helper
 export function computeGradeAndPoint(score: number): { grade: string; gradePoint: number } {
@@ -40,8 +41,16 @@ export function computeGradeAndPoint(score: number): { grade: string; gradePoint
 }
 
 interface AumsContextType {
+  isAuthenticated: boolean;
+  login: (email: string, password: string) => { success: boolean; message: string };
+  logout: () => void;
+  canSwitchWorkspaces: boolean;
   activePortal: PortalId;
   setActivePortal: (portal: PortalId) => void;
+  workspaceView: string;
+  setWorkspaceView: (view: string) => void;
+  openModule: (moduleId: number, preferredPortal?: PortalId) => void;
+  openWorkspace: (portal: PortalId, view: string) => void;
   currentPersona: UserPersona;
   personas: UserPersona[];
   switchPersona: (personaId: string) => void;
@@ -73,10 +82,68 @@ interface AumsContextType {
 
 const AumsContext = createContext<AumsContextType | undefined>(undefined);
 
+const SWITCH_ROLES = new Set([
+  'System Administrator',
+  'Vice Chancellor / Management',
+  'Registrar',
+]);
+
 export const AumsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [activePortal, setActivePortal] = useState<PortalId>('student');
   const [personas] = useState<UserPersona[]>(INITIAL_PERSONAS);
-  const [currentPersona, setCurrentPersona] = useState<UserPersona>(INITIAL_PERSONAS[0]);
+  const [currentPersona, setCurrentPersona] = useState<UserPersona>(() => {
+    const saved = localStorage.getItem('aums_session');
+    return INITIAL_PERSONAS.find((p) => p.id === saved) || INITIAL_PERSONAS[1] || INITIAL_PERSONAS[0];
+  });
+  const [isAuthenticated, setIsAuthenticated] = useState(() => Boolean(localStorage.getItem('aums_session')));
+  const [activePortal, setActivePortalState] = useState<PortalId>(
+    () => currentPersona.portal
+  );
+  const [workspaceView, setWorkspaceView] = useState<string>(
+    () => PORTAL_DEFAULT_VIEWS[currentPersona.portal]
+  );
+
+  const canSwitchWorkspaces = SWITCH_ROLES.has(currentPersona.role);
+
+  const setActivePortal = (portal: PortalId) => {
+    setActivePortalState(portal);
+    setWorkspaceView(PORTAL_DEFAULT_VIEWS[portal]);
+  };
+
+  const openWorkspace = (portal: PortalId, view: string) => {
+    setActivePortalState(portal);
+    setWorkspaceView(view);
+  };
+
+  const openModule = (moduleId: number, preferredPortal?: PortalId) => {
+    const binding =
+      (preferredPortal && MODULE_BINDINGS.find((b) => b.moduleId === moduleId && b.portal === preferredPortal)) ||
+      MODULE_BINDINGS.find((b) => b.moduleId === moduleId && b.portal === activePortal) ||
+      primaryBinding(moduleId);
+    if (!binding) return;
+    setActivePortalState(binding.portal);
+    setWorkspaceView(binding.view);
+  };
+
+  const login = (email: string, password: string) => {
+    if (password !== DEMO_PASSWORD) {
+      return { success: false, message: 'Passphrase not recognised. Use the campus demo passphrase.' };
+    }
+    const found = personas.find((p) => p.email.toLowerCase() === email.toLowerCase());
+    if (!found) {
+      return { success: false, message: 'No AIMS account is provisioned for that email.' };
+    }
+    setCurrentPersona(found);
+    setActivePortalState(found.portal);
+    setWorkspaceView(PORTAL_DEFAULT_VIEWS[found.portal]);
+    setIsAuthenticated(true);
+    localStorage.setItem('aums_session', found.id);
+    return { success: true, message: `Signed in as ${found.name}` };
+  };
+
+  const logout = () => {
+    localStorage.removeItem('aums_session');
+    setIsAuthenticated(false);
+  };
 
   const [students, setStudents] = useState<StudentRecord[]>(() => {
     try {
@@ -166,7 +233,9 @@ export const AumsProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const found = personas.find(p => p.id === personaId);
     if (found) {
       setCurrentPersona(found);
-      setActivePortal(found.portal);
+      setActivePortalState(found.portal);
+      setWorkspaceView(PORTAL_DEFAULT_VIEWS[found.portal]);
+      localStorage.setItem('aums_session', found.id);
       logAuditEvent('PERSONA_SWITCH', '02. User Auth & RBAC', 'UserPersona', found.id, `Switched active session to ${found.name} (${found.role}).`);
     }
   };
@@ -563,8 +632,16 @@ export const AumsProvider: React.FC<{ children: React.ReactNode }> = ({ children
   return (
     <AumsContext.Provider
       value={{
+        isAuthenticated,
+        login,
+        logout,
+        canSwitchWorkspaces,
         activePortal,
         setActivePortal,
+        workspaceView,
+        setWorkspaceView,
+        openModule,
+        openWorkspace,
         currentPersona,
         personas,
         switchPersona,

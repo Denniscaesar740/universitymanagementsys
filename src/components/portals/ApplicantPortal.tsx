@@ -13,14 +13,7 @@ export const ApplicantPortal: React.FC = () => {
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       {/* Banner */}
-      <div
-        className="aums-card"
-        style={{
-          background: 'linear-gradient(135deg, var(--bg-surface), var(--bg-card))',
-          padding: '28px',
-          borderLeft: '5px solid var(--primary)',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
           <span className="badge badge-primary">Module 03 • Public & Applicant Services</span>
           <span className="badge badge-success font-mono">Status: {applicant.status}</span>

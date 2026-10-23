@@ -48,25 +48,10 @@ export const RegistryPortal: React.FC<RegistryPortalProps> = ({ currentSubView =
     setTimeout(() => setActionSuccess(null), 4000);
   };
 
-  const TABS: { id: RegistrySubSection; label: string; icon: React.ElementType }[] = [
-    { id: 'biodata', label: '1. Master Biodata (Mod 04)', icon: Users },
-    { id: 'degree_audit', label: '2. Degree Audit (Mod 16)', icon: Award },
-    { id: 'transcripts', label: '3. Transcripts (Mod 15)', icon: FileText },
-    { id: 'graduation', label: '4. Graduation Clearance', icon: GraduationCap },
-    { id: 'certificates', label: '5. Certificate Issuance', icon: Printer },
-  ];
-
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Banner */}
-      <div
-        className="aums-card"
-        style={{
-          background: 'linear-gradient(135deg, var(--bg-surface), var(--bg-card))',
-          padding: '24px',
-          borderLeft: '5px solid var(--primary)',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
           <span className="badge badge-primary">Module 04, 15 & 16 • Registry & Academic Affairs</span>
           <span className="badge badge-success">Authoritative Master Records</span>
@@ -75,39 +60,6 @@ export const RegistryPortal: React.FC<RegistryPortalProps> = ({ currentSubView =
         <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
           Authoritative institutional records repository, graduation audit eligibility engine, official transcript certification and convocation clearance.
         </p>
-      </div>
-
-      {/* Internal Navigation Bar */}
-      <div className="no-print" style={{ display: 'flex', gap: '4px', borderBottom: '2px solid var(--primary)', paddingBottom: '0px', overflowX: 'auto' }}>
-        {TABS.map(t => {
-          const isSelected = activeSection === t.id;
-          const IconComponent = t.icon;
-          return (
-            <button
-              key={t.id}
-              onClick={() => setActiveSection(t.id)}
-              style={{
-                padding: '8px 16px',
-                background: isSelected ? 'var(--primary)' : 'var(--surface-card)',
-                color: isSelected ? '#ffffff' : 'var(--text-primary)',
-                border: '1px solid var(--surface-border)',
-                borderBottom: 'none',
-                fontWeight: isSelected ? 700 : 600,
-                fontSize: '12.5px',
-                cursor: 'pointer',
-                borderTopLeftRadius: '3px',
-                borderTopRightRadius: '3px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <IconComponent size={14} />
-              <span>{t.label}</span>
-            </button>
-          );
-        })}
       </div>
 
       {actionSuccess && (

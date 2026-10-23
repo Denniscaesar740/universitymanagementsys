@@ -22,14 +22,7 @@ export const AdmissionsPortal: React.FC = () => {
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       {/* Banner */}
-      <div
-        className="aums-card"
-        style={{
-          background: 'linear-gradient(135deg, var(--bg-surface), var(--bg-card))',
-          padding: '28px',
-          borderLeft: '5px solid var(--emerald)',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
           <span className="badge badge-success">Module 03 • Admissions Management</span>
           <span className="badge badge-primary">2026/2027 Intake</span>

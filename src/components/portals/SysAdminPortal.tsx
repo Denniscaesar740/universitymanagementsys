@@ -10,9 +10,24 @@ import {
   Activity,
 } from 'lucide-react';
 
-export const SysAdminPortal: React.FC = () => {
+interface SysAdminPortalProps {
+  currentSubView?: string;
+}
+
+type SysAdminView = 'audit' | 'rbac' | 'settings' | 'backups' | 'integrations';
+
+export const SysAdminPortal: React.FC<SysAdminPortalProps> = ({ currentSubView = 'audit' }) => {
   const { auditLogs, personas } = useAums();
-  const [activeTab, setActiveTab] = useState<'audit' | 'rbac' | 'settings'>('audit');
+  const [activeTab, setActiveTab] = useState<SysAdminView>(
+    (currentSubView as SysAdminView) || 'audit'
+  );
+
+  React.useEffect(() => {
+    const valid: SysAdminView[] = ['audit', 'rbac', 'settings', 'backups', 'integrations'];
+    if (currentSubView && valid.includes(currentSubView as SysAdminView)) {
+      setActiveTab(currentSubView === 'backups' || currentSubView === 'integrations' ? 'settings' : (currentSubView as SysAdminView));
+    }
+  }, [currentSubView]);
   const [auditSearch, setAuditSearch] = useState<string>('');
   const [selectedModuleFilter, setSelectedModuleFilter] = useState<string>('ALL');
 
@@ -31,14 +46,7 @@ export const SysAdminPortal: React.FC = () => {
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       {/* Banner */}
-      <div
-        className="aums-card"
-        style={{
-          background: 'linear-gradient(135deg, var(--bg-surface), var(--bg-card))',
-          padding: '28px',
-          borderLeft: '5px solid var(--rose)',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
@@ -51,32 +59,6 @@ export const SysAdminPortal: React.FC = () => {
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <button
-              onClick={() => setActiveTab('audit')}
-              className={`btn btn-sm ${activeTab === 'audit' ? 'btn-primary' : 'btn-secondary'}`}
-              style={{ gap: '6px' }}
-            >
-              <Activity size={14} />
-              <span>Module 38 Live Audit Trail</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('rbac')}
-              className={`btn btn-sm ${activeTab === 'rbac' ? 'btn-primary' : 'btn-secondary'}`}
-              style={{ gap: '6px' }}
-            >
-              <Users size={14} />
-              <span>Module 02 User Roles & RBAC</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('settings')}
-              className={`btn btn-sm ${activeTab === 'settings' ? 'btn-primary' : 'btn-secondary'}`}
-              style={{ gap: '6px' }}
-            >
-              <Settings size={14} />
-              <span>System Settings & Backups</span>
-            </button>
-          </div>
         </div>
       </div>
 

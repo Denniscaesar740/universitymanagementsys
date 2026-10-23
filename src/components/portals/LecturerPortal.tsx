@@ -87,24 +87,10 @@ export const LecturerPortal: React.FC<LecturerPortalProps> = ({ currentSubView =
     setTimeout(() => setAttendanceSaved(false), 4000);
   };
 
-  const TABS: { id: LecturerSubTab; label: string; icon: React.ElementType }[] = [
-    { id: 'marksheet', label: '1. Marksheet & Grade Entry (Mod 12)', icon: ClipboardList },
-    { id: 'attendance', label: '2. Lecture Attendance Register (Mod 11)', icon: CheckSquare },
-    { id: 'offerings', label: '3. Teaching Allocations (Mod 08/10)', icon: BookOpen },
-    { id: 'materials', label: '4. E-Learning Course Materials (Mod 21)', icon: FileText },
-  ];
-
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Header Banner */}
-      <div
-        className="aums-card"
-        style={{
-          background: 'linear-gradient(135deg, var(--bg-surface), var(--bg-card))',
-          padding: '24px',
-          borderLeft: '5px solid var(--purple)',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
@@ -136,39 +122,6 @@ export const LecturerPortal: React.FC<LecturerPortalProps> = ({ currentSubView =
             </select>
           </div>
         </div>
-      </div>
-
-      {/* Internal Navigation Tabs */}
-      <div className="no-print" style={{ display: 'flex', gap: '4px', borderBottom: '2px solid var(--purple)', paddingBottom: '0px', overflowX: 'auto' }}>
-        {TABS.map(t => {
-          const isSelected = activeTab === t.id;
-          const IconComponent = t.icon;
-          return (
-            <button
-              key={t.id}
-              onClick={() => setActiveTab(t.id)}
-              style={{
-                padding: '8px 16px',
-                background: isSelected ? 'var(--purple)' : 'var(--surface-card)',
-                color: isSelected ? '#ffffff' : 'var(--text-primary)',
-                border: '1px solid var(--surface-border)',
-                borderBottom: 'none',
-                fontWeight: isSelected ? 700 : 600,
-                fontSize: '12.5px',
-                cursor: 'pointer',
-                borderTopLeftRadius: '3px',
-                borderTopRightRadius: '3px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <IconComponent size={14} />
-              <span>{t.label}</span>
-            </button>
-          );
-        })}
       </div>
 
       {/* Toast Feedback */}

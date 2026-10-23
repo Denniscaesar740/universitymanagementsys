@@ -124,81 +124,21 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ currentSubView = '
     setTimeout(() => setMaintenanceSuccess(false), 5000);
   };
 
-  const TABS: { id: SubTabId; label: string; icon: React.ElementType }[] = [
-    { id: 'dashboard', label: '1. Overview Dashboard', icon: LayoutDashboard },
-    { id: 'results', label: '2. Statement of Results', icon: FileText },
-    { id: 'registration', label: '3. Course Registration', icon: Plus },
-    { id: 'proof', label: '4. Proof of Registration', icon: Printer },
-    { id: 'timetable', label: '5. Lectures & Timetable', icon: Clock },
-    { id: 'elearning', label: '6. Virtual LMS & Materials', icon: BookOpen },
-    { id: 'hostel', label: '7. Hostel Allocation', icon: Building2 },
-    { id: 'finance', label: '8. Fees & MoMo Payment', icon: CreditCard },
-  ];
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {/* Official Noticeboard Memo Banner (Real UMaT / UG Style) */}
-      <div
-        className="uni-card no-print"
-        style={{
-          borderLeft: '4px solid var(--uni-gold)',
-          background: 'var(--uni-gold-subtle)',
-          padding: '12px 18px',
-        }}
-      >
+      <div className="uni-card no-print" style={{ padding: '16px 18px', background: 'linear-gradient(135deg, var(--uni-gold-subtle), var(--bg-card))' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
           <div>
-            <div style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', color: '#b45309', letterSpacing: '0.04em' }}>
-              OFFICE OF THE REGISTRAR (ACADEMIC AFFAIRS) • 2025/2026 SEMESTER II
-            </div>
-            <div style={{ fontSize: '13px', fontWeight: 600, color: '#0f172a', marginTop: '2px' }}>
-              Official Student MIS Portal • Unified Academic Identity Desk
-            </div>
-            <div style={{ fontSize: '12px', color: '#475569' }}>
-              Students must ensure completion of 100% Academic Facility User Fees (AFUF) payment and departmental course validation for examination dockets.
+            <div className="eyebrow">Office of the Registrar · Semester II</div>
+            <div style={{ fontSize: '15px', fontWeight: 600, marginTop: '4px' }}>
+              Complete AFUF payment and departmental validation before examination dockets open.
             </div>
           </div>
-
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <button onClick={() => window.print()} className="btn-uni-primary" style={{ padding: '6px 12px' }}>
-              <Printer size={14} />
-              <span>Print Official Record</span>
-            </button>
-          </div>
+          <button onClick={() => window.print()} className="btn-uni-primary">
+            <Printer size={14} />
+            <span>Print record</span>
+          </button>
         </div>
-      </div>
-
-      {/* Internal Sub-Navigation Tabs */}
-      <div className="no-print" style={{ display: 'flex', gap: '4px', borderBottom: '2px solid var(--uni-green)', paddingBottom: '0px', overflowX: 'auto' }}>
-        {TABS.map(t => {
-          const isSelected = activeTab === t.id;
-          const IconComponent = t.icon;
-          return (
-            <button
-              key={t.id}
-              onClick={() => setActiveTab(t.id)}
-              style={{
-                padding: '8px 14px',
-                background: isSelected ? 'var(--uni-green)' : 'var(--surface-card)',
-                color: isSelected ? '#ffffff' : 'var(--text-primary)',
-                border: '1px solid var(--surface-border)',
-                borderBottom: 'none',
-                fontWeight: isSelected ? 700 : 600,
-                fontSize: '12px',
-                cursor: 'pointer',
-                borderTopLeftRadius: '3px',
-                borderTopRightRadius: '3px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <IconComponent size={14} />
-              <span>{t.label}</span>
-            </button>
-          );
-        })}
       </div>
 
       {/* VIEW 0: STUDENT OVERVIEW DASHBOARD */}
@@ -209,8 +149,6 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ currentSubView = '
             className="uni-card"
             style={{
               padding: '24px',
-              borderLeft: '5px solid var(--uni-green)',
-              background: 'linear-gradient(135deg, var(--surface-card), var(--surface-subtle))',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>

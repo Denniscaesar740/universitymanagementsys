@@ -43,24 +43,10 @@ export const AcademicAdminPortal: React.FC<AcademicAdminPortalProps> = ({ curren
 
   const selectedBatch = approvalBatches.find(b => b.id === selectedBatchId) || approvalBatches[0];
 
-  const TABS: { id: AdminSubSection; label: string; icon: React.ElementType }[] = [
-    { id: 'approvals', label: '1. Results Approval Desk (Mod 13)', icon: FileCheck },
-    { id: 'courses', label: '2. Master Course Catalogue (Mod 05)', icon: BookOpen },
-    { id: 'offerings', label: '3. Teaching Allocations (Mod 06)', icon: Building },
-    { id: 'calendar', label: '4. Academic Calendar & Setup (Mod 01)', icon: CalendarDays },
-    { id: 'timetable', label: '5. Timetable & Venues (Mod 07 & 14)', icon: Clock },
-  ];
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       {/* Official Directorate Header Card */}
-      <div
-        className="uni-card"
-        style={{
-          borderLeft: '4px solid var(--uni-green)',
-          padding: '16px 20px',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <div style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--uni-green)', letterSpacing: '0.04em' }}>
@@ -74,39 +60,6 @@ export const AcademicAdminPortal: React.FC<AcademicAdminPortalProps> = ({ curren
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Internal Navigation Bar */}
-      <div className="no-print" style={{ display: 'flex', gap: '4px', borderBottom: '2px solid var(--uni-green)', paddingBottom: '0px', overflowX: 'auto' }}>
-        {TABS.map(t => {
-          const isSelected = activeSection === t.id;
-          const IconComponent = t.icon;
-          return (
-            <button
-              key={t.id}
-              onClick={() => setActiveSection(t.id)}
-              style={{
-                padding: '8px 14px',
-                background: isSelected ? 'var(--uni-green)' : 'var(--surface-card)',
-                color: isSelected ? '#ffffff' : 'var(--text-primary)',
-                border: '1px solid var(--surface-border)',
-                borderBottom: 'none',
-                fontWeight: isSelected ? 700 : 600,
-                fontSize: '12px',
-                cursor: 'pointer',
-                borderTopLeftRadius: '3px',
-                borderTopRightRadius: '3px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <IconComponent size={14} />
-              <span>{t.label}</span>
-            </button>
-          );
-        })}
       </div>
 
       {/* SECTION 1: MODULE 13 RESULTS APPROVAL DESK */}

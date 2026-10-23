@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 export const ModuleMapPortal: React.FC = () => {
-  const { setActivePortal } = useAums();
+  const { openModule } = useAums();
   const [selectedPillar, setSelectedPillar] = useState<string>('ALL');
   const [selectedPhase, setSelectedPhase] = useState<number | 'ALL'>('ALL');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -51,13 +51,7 @@ export const ModuleMapPortal: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       {/* Official Institutional Architecture Header */}
-      <div
-        className="uni-card"
-        style={{
-          borderLeft: '4px solid var(--uni-green)',
-          padding: '18px 24px',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
           <span className="uni-badge badge-official">
             <Layers size={13} /> DIRECTORATE OF ICT & ACADEMIC SYSTEMS
@@ -88,34 +82,27 @@ export const ModuleMapPortal: React.FC = () => {
             marginTop: '16px',
           }}
         >
-          <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', padding: '10px 14px', borderRadius: '3px' }}>
-            <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 700 }}>Total Institutional Modules:</div>
-            <div style={{ fontSize: '18px', fontWeight: 900, color: '#003822' }}>40 Modules</div>
+          <div className="kpi-card kpi-card-green">
+            <div className="kpi-label">Modules</div>
+            <div className="kpi-value">40</div>
           </div>
-          <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', padding: '10px 14px', borderRadius: '3px' }}>
-            <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 700 }}>Governance Pillars:</div>
-            <div style={{ fontSize: '18px', fontWeight: 900, color: '#15803d' }}>9 Pillars</div>
+          <div className="kpi-card kpi-card-green">
+            <div className="kpi-label">Pillars</div>
+            <div className="kpi-value">9</div>
           </div>
-          <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', padding: '10px 14px', borderRadius: '3px' }}>
-            <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 700 }}>Phase 1 Core Engine:</div>
-            <div style={{ fontSize: '18px', fontWeight: 900, color: '#b45309' }}>14 Modules</div>
+          <div className="kpi-card kpi-card-gold">
+            <div className="kpi-label">Phase 1 core</div>
+            <div className="kpi-value">14</div>
           </div>
-          <div style={{ background: '#f8fafc', border: '1px solid #cbd5e1', padding: '10px 14px', borderRadius: '3px' }}>
-            <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 700 }}>Operational Portals:</div>
-            <div style={{ fontSize: '18px', fontWeight: 900, color: '#003822' }}>10 Portals</div>
+          <div className="kpi-card kpi-card-sky">
+            <div className="kpi-label">Portals</div>
+            <div className="kpi-value">10</div>
           </div>
         </div>
       </div>
 
       {/* Unified Identity Lifecycle Banner */}
-      <div
-        className="aums-card"
-        style={{
-          background: 'var(--bg-surface)',
-          padding: '20px 24px',
-          borderLeft: '4px solid var(--primary)',
-        }}
-      >
+      <div className="aums-card">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
@@ -373,7 +360,7 @@ export const ModuleMapPortal: React.FC = () => {
                 <button
                   onClick={e => {
                     e.stopPropagation();
-                    setActivePortal(targetPortal);
+                    openModule(mod.id, targetPortal);
                   }}
                   className="btn btn-outline btn-sm"
                   style={{ gap: '6px' }}
@@ -552,9 +539,8 @@ export const ModuleMapPortal: React.FC = () => {
               </button>
               <button
                 onClick={() => {
-                  const p = getTargetPortal(selectedModule.id);
                   setSelectedModule(null);
-                  setActivePortal(p);
+                  openModule(selectedModule.id);
                 }}
                 className="btn btn-primary"
                 style={{ gap: '8px' }}

@@ -118,25 +118,10 @@ export const HRPortal: React.FC<HRPortalProps> = ({ currentSubView = 'staff' }) 
     setTimeout(() => setLeaveFeedback(null), 5000);
   };
 
-  const TABS: { id: HRSubSection; label: string; icon: React.ElementType }[] = [
-    { id: 'staff', label: '1. Staff Directory (Mod 20)', icon: Briefcase },
-    { id: 'leave', label: '2. Leave Management (Mod 27)', icon: CalendarDays },
-    { id: 'payroll', label: '3. Payroll & SSNIT (Mod 23)', icon: Calculator },
-    { id: 'appraisal', label: '4. Staff Appraisal & Promotion (Mod 24/25)', icon: Award },
-    { id: 'recruitment', label: '5. Recruitment & Onboarding (Mod 26)', icon: UserPlus },
-  ];
-
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Banner */}
-      <div
-        className="aums-card"
-        style={{
-          background: 'linear-gradient(135deg, var(--bg-surface), var(--bg-card))',
-          padding: '24px',
-          borderLeft: '5px solid #0284c7',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
           <span className="badge badge-primary">Module 20, 23, 24, 25, 26 & 27 • Human Resources</span>
           <span className="badge badge-neutral">Directorate of Human Resources</span>
@@ -165,39 +150,6 @@ export const HRPortal: React.FC<HRPortalProps> = ({ currentSubView = 'staff' }) 
             <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--emerald)' }}>GHS 3.82M</div>
           </div>
         </div>
-      </div>
-
-      {/* Internal Navigation Bar */}
-      <div className="no-print" style={{ display: 'flex', gap: '4px', borderBottom: '2px solid #0284c7', paddingBottom: '0px', overflowX: 'auto' }}>
-        {TABS.map(t => {
-          const isSelected = activeSection === t.id;
-          const IconComponent = t.icon;
-          return (
-            <button
-              key={t.id}
-              onClick={() => setActiveSection(t.id)}
-              style={{
-                padding: '8px 16px',
-                background: isSelected ? '#0284c7' : 'var(--surface-card)',
-                color: isSelected ? '#ffffff' : 'var(--text-primary)',
-                border: '1px solid var(--surface-border)',
-                borderBottom: 'none',
-                fontWeight: isSelected ? 700 : 600,
-                fontSize: '12.5px',
-                cursor: 'pointer',
-                borderTopLeftRadius: '3px',
-                borderTopRightRadius: '3px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <IconComponent size={14} />
-              <span>{t.label}</span>
-            </button>
-          );
-        })}
       </div>
 
       {leaveFeedback && (

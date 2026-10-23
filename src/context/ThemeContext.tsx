@@ -19,7 +19,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     localStorage.setItem('aums_theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
-    document.body.style.backgroundColor = theme === 'dark' ? '#07090d' : '#f8fafc';
+    document.body.style.backgroundColor = theme === 'dark' ? '#08110d' : '#f4f1ea';
   }, [theme]);
 
   const toggleTheme = () => {

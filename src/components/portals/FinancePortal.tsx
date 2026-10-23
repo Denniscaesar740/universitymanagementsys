@@ -50,25 +50,10 @@ export const FinancePortal: React.FC<FinancePortalProps> = ({ currentSubView = '
     setTimeout(() => setClearanceNotice(null), 5000);
   };
 
-  const TABS: { id: FinanceSubSection; label: string; icon: React.ElementType }[] = [
-    { id: 'invoices', label: '1. Student Invoices (Mod 17)', icon: Calculator },
-    { id: 'transactions', label: '2. Payment Transactions (Mod 18)', icon: CreditCard },
-    { id: 'clearance', label: '3. Clearance Tokens', icon: ShieldCheck },
-    { id: 'reports', label: '4. Revenue Reports', icon: BarChart3 },
-    { id: 'scholarships', label: '5. Financial Aid & SLTF (Mod 19)', icon: Award },
-  ];
-
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Banner */}
-      <div
-        className="aums-card"
-        style={{
-          background: 'linear-gradient(135deg, var(--bg-surface), var(--bg-card))',
-          padding: '24px',
-          borderLeft: '5px solid var(--amber)',
-        }}
-      >
+      <div className="portal-hero">
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
           <span className="badge badge-warning">Module 17, 18 & 19 • Student Finance & Bursary</span>
           <span className="badge badge-neutral">Finance Directorate</span>
@@ -112,39 +97,6 @@ export const FinancePortal: React.FC<FinancePortalProps> = ({ currentSubView = '
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Internal Navigation Bar */}
-      <div className="no-print" style={{ display: 'flex', gap: '4px', borderBottom: '2px solid var(--amber)', paddingBottom: '0px', overflowX: 'auto' }}>
-        {TABS.map(t => {
-          const isSelected = activeSection === t.id;
-          const IconComponent = t.icon;
-          return (
-            <button
-              key={t.id}
-              onClick={() => setActiveSection(t.id)}
-              style={{
-                padding: '8px 16px',
-                background: isSelected ? 'var(--amber)' : 'var(--surface-card)',
-                color: isSelected ? '#ffffff' : 'var(--text-primary)',
-                border: '1px solid var(--surface-border)',
-                borderBottom: 'none',
-                fontWeight: isSelected ? 700 : 600,
-                fontSize: '12.5px',
-                cursor: 'pointer',
-                borderTopLeftRadius: '3px',
-                borderTopRightRadius: '3px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <IconComponent size={14} />
-              <span>{t.label}</span>
-            </button>
-          );
-        })}
       </div>
 
       {clearanceNotice && (
